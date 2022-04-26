@@ -1,5 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
-const app = express();
+const userRoute = require('../routes/userRoute')
+const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+const port = 3000
 
-app.listen(3333);
+userRoute(app)
+
+app.get('/', (req, res) => res.send('Hello World!'))
+
+
+app.listen(port, ()=> console.log('Server On, port 3000'))
+
+
