@@ -38,8 +38,8 @@ const userRoute = (app) => {
             saveUser(users.map(user => {
                 if (user.id === req.params.id) {
                     return {
-                            user, 
-                            req,body //arrumar essa parte
+                            ...user, 
+                            ...req.body 
                     }
                 }
                 return user
